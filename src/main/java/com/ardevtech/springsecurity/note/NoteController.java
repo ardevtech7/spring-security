@@ -38,7 +38,7 @@ public class NoteController {
     public String saveNote(Authentication authentication, @ModelAttribute NoteRegisterDto noteDto) {
         User user = (User) authentication.getPrincipal();
         noteService.saveNote(user, noteDto.getTitle(), noteDto.getContent());
-        return "redirect/note";
+        return "redirect:note";
     }
 
     /**
