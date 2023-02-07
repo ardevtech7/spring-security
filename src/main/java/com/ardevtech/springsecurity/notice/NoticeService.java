@@ -1,6 +1,5 @@
 package com.ardevtech.springsecurity.notice;
 
-import com.ardevtech.springsecurity.note.NoteRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
