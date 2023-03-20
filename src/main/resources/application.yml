@@ -6,7 +6,7 @@ logging:
 # Overloaded POST 사용
 spring:
   mvc:
-    hiddenmethod:
+    hidden-method:
       filter:
         enabled: true
 # session

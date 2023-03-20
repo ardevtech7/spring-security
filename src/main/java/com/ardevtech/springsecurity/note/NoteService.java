@@ -34,14 +34,6 @@ public class NoteService {
         return noteRepository.findByUserOrderByIdDesc(user);
     }
 
-    /**
-     * 노트 저장
-     *
-     * @param user 노트 저장하는 유저
-     * @param title 제목
-     * @param content 내용
-     * @return 저장된 노트
-     */
     public Note saveNote(User user, String title, String content) {
         if (user == null) {
             throw new UserNotFoundException();
@@ -49,12 +41,6 @@ public class NoteService {
         return noteRepository.save(new Note(title, content, user));
     }
 
-    /**
-     * 노트 삭제
-     *
-     * @param user 삭제하려는 노트 유저
-     * @param noteId 노트 ID
-     */
     public void deleteNote(User user, Long noteId) {
         if (user == null) {
             throw new UserNotFoundException();
@@ -64,5 +50,4 @@ public class NoteService {
             noteRepository.delete(note);
         }
     }
-
 }

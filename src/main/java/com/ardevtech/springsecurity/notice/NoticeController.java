@@ -14,11 +14,6 @@ import java.util.List;
 public class NoticeController {
     private final NoticeService noticeService;
 
-    /**
-     * 공지사항 조회
-     *
-     * @return notice/index.html
-     */
     @GetMapping
     public String getNotice(Model model) {
         List<Notice> notices = noticeService.findAll();
@@ -26,24 +21,12 @@ public class NoticeController {
         return "notice/index";
     }
 
-    /**
-     * 공지사항 등록
-     *
-     * @param noteDto 노트 등록 Dto
-     * @return notice/index.html refresh
-     */
     @PostMapping
     public String postNotice(@ModelAttribute NoteRegisterDto noteDto) {
         noticeService.saveNotice(noteDto.getTitle(), noteDto.getContent());
         return "redirect:notice";
     }
 
-    /**
-     * 공지사항 삭제
-     *
-     * @param id 공지사항 ID
-     * @return notice/index.html refresh
-     */
     @DeleteMapping
     public String deleteNotice(@RequestParam Long id) {
         noticeService.deleteNotice(id);
